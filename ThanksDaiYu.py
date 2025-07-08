@@ -44,11 +44,10 @@ st.markdown(
 
 # 页面内容
 def type_writer(text, speed=0.05):
-    text_area = st.text_area("", height=200)
+    empty = st.empty()
     for i in range(len(text)):
-        text_area.text = text[:i+1]
+        empty.text_area(text[:i+1], height=200)
         time.sleep(speed)
-    text_area.text = text
 
 # 显示标题
 st.markdown("<div class='title'>🎉 感谢黛玉 🎉</div>", unsafe_allow_html=True)
