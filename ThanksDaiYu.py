@@ -3,7 +3,7 @@ from PIL import Image
 import base64
 
 # 设置页面配置
-st.set_page_config(page_title="感谢我的委托老师", layout="wide")
+st.set_page_config(page_title="黛玉加油！！", layout="wide")
 
 # 自定义 CSS 样式
 st.markdown(
@@ -54,15 +54,8 @@ st.markdown(
 
 # 页面内容
 st.markdown("<div class='container'>", unsafe_allow_html=True)
-st.markdown("<div class='title'>感谢你，我的委托老师</div>", unsafe_allow_html=True)
-st.markdown("<div class='subtitle'>许个愿吧</div>", unsafe_allow_html=True)
+st.markdown("<div class='title'>我真的很感谢你，黛玉</div>", unsafe_allow_html=True)
 
-# 添加照片
-try:
-    photo = Image.open("path_to_your_photo.jpg")  # 替换为你的照片路径
-    st.image(photo, caption="我们的美好时光", use_column_width=True)
-except FileNotFoundError:
-    st.error("照片文件未找到，请检查文件路径。")
 
 # 添加视频
 try:
@@ -72,20 +65,11 @@ try:
 except FileNotFoundError:
     st.error("视频文件未找到，请检查文件路径。")
 
-# 添加音乐
-try:
-    with open("path_to_your_music.mp3", "rb") as audio_file:
-        audio_bytes = audio_file.read()
-    st.audio(audio_bytes, format="audio/mp3")
-except FileNotFoundError:
-    st.error("音乐文件未找到，请检查文件路径。")
-
 # 祝福文字
 st.markdown("<div class='message'>愿这份爱和快乐永远伴随着你！;)</div>", unsafe_allow_html=True)
 st.markdown("<div class='message'>感谢你成为我特别的人！</div>", unsafe_allow_html=True)
 
-# 显示按钮
-st.markdown("<button class='button' onclick='location.reload()'>再次观看</button>", unsafe_allow_html=True)
+
 
 # 创意元素：添加一个随机祝福语
 import random
