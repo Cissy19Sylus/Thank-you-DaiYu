@@ -194,8 +194,8 @@ st.markdown(
     """
     <div class="container">
         <div class="one">🎉 黛玉加油!!! 🎉</div>
-        <div class="two">I really like your name btw!</div>
-        <div class="three">It's your birthday!!! :D</div>
+        <div class="two">I really really thank your !</div>
+        <div class="three">那就浅浅看一下这个小网站吧~</div>
         <div class="four">
             <div class="text-box">
                 <p>Happy birthday to you!! Yeee! Many many happy blah...</p>
