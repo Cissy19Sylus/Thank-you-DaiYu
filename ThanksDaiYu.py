@@ -1,7 +1,7 @@
 import streamlit as st
 
 # 设置页面配置
-st.set_page_config(page_title="Happy Birthday!!! :)", page_icon="🎂", layout="wide")
+st.set_page_config(page_title="黛玉加油!!! :)", page_icon="🎂", layout="wide")
 
 # 自定义 CSS 样式
 st.markdown(
@@ -193,7 +193,7 @@ st.markdown(
 st.markdown(
     """
     <div class="container">
-        <div class="one">🎉 Happy Birthday!!! 🎉</div>
+        <div class="one">🎉 黛玉加油!!! 🎉</div>
         <div class="two">I really like your name btw!</div>
         <div class="three">It's your birthday!!! :D</div>
         <div class="four">
