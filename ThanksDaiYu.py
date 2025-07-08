@@ -1,199 +1,241 @@
 import streamlit as st
-from datetime import datetime
-import time
-import os
-from PIL import Image
-import base64
-import random
-import altair as alt
-import pandas as pd
 
 # 设置页面配置
-st.set_page_config(
-    page_title="加油黛玉！",
-    page_icon="💪",
-    layout="wide"
-)
+st.set_page_config(page_title="Happy Birthday!!! :)", page_icon="🎂", layout="wide")
 
-# 创建标题
-st.title("加油黛玉！")
-st.markdown("---")
-
-# 自定义CSS样式
+# 自定义 CSS 样式
 st.markdown(
     """
     <style>
-    .stApp {
-        background-color: #f8f3ff;
-    }
     .container {
-        max-width: 1200px;
+        height: 100vh;
+        width: 100vw;
         margin: 0 auto;
-        padding: 20px;
-    }
-    .header {
         text-align: center;
-        color: #7b52c4;
-        font-family: "Comic Sans MS", cursive, sans-serif;
-    }
-    .photo-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        margin-bottom: 30px;
-    }
-    .photo-card {
-        background-color: white;
-        border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        position: relative;
         overflow: hidden;
-        width: 300px;
-        transition: transform 0.3s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-    .photo-card:hover {
-        transform: translateY(-5px);
+    .one {
+        font-size: 4.5rem;
+        animation: fadeIn 1s ease-in-out;
     }
-    .photo-card img {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
+    .two {
+        font-size: 1.2rem;
+        font-weight: lighter;
+        animation: fadeIn 1s ease-in-out 1s;
     }
-    .photo-card .caption {
+    .three {
+        font-size: 3rem;
+        animation: fadeIn 1s ease-in-out 2s;
+    }
+    .four {
+        width: 600px;
+        margin: 20px auto;
+        border: 3px solid #aaa;
+        border-radius: 5px;
         padding: 10px;
-        text-align: center;
-        font-family: "Arial", sans-serif;
+        position: relative;
+        animation: fadeIn 1s ease-in-out 3s;
     }
-    .music-player {
-        background-color: white;
-        border-radius: 15px;
-        padding: 20px;
-        margin: 20px 0;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    .text-box p {
+        margin: 0;
+        text-align: left;
     }
-    .message-box {
-        background-color: #e6d7ff;
-        border-radius: 15px;
-        padding: 20px;
-        margin: 20px 0;
-        font-family: "Comic Sans MS", cursive, sans-serif;
+    .fake-btn {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+        color: #fff;
+        background-color: rgb(21, 161, 237);
+        padding: 5px 8px;
+        border-radius: 3px;
     }
-    .time-display {
-        text-align: center;
-        font-size: 1.2em;
-        margin: 20px 0;
-        color: #7b52c4;
+    .five p {
+        font-size: 2rem;
+        position: absolute;
+        left: 0;
+        right: 0;
+        animation: fadeIn 1s ease-in-out 4s;
     }
-    .footer {
-        text-align: center;
-        margin-top: 30px;
-        color: #7b52c4;
+    .idea-3 strong {
+        padding: 3px 5px;
+        border-radius: 3px;
+        display: inline-block;
+    }
+    .idea-5 {
+        font-size: 4rem;
+        animation: fadeIn 1s ease-in-out 5s;
+    }
+    .idea-6 {
+        font-size: 15rem;
+        animation: fadeIn 1s ease-in-out 6s;
+    }
+    .six img {
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+        animation: fadeIn 1s ease-in-out 7s;
+    }
+    .six .hat {
+        position: absolute;
+        width: 80px;
+        top: -35px;
+        left: 41.5%;
+        animation: fadeIn 1s ease-in-out 7s;
+    }
+    .baloons img {
+        display: inline-block;
+        position: absolute;
+        animation: floatUp 3s ease-in-out infinite;
+    }
+    .baloons img:nth-child(even) {
+        left: -10%;
+    }
+    .baloons img:nth-child(odd) {
+        right: -10%;
+    }
+    .baloons img:nth-child(3n + 0) {
+        left: 30%;
+    }
+    .eight svg {
+        width: 25px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        visibility: hidden;
+        z-index: -1;
+    }
+    .eight svg:nth-child(1) {
+        top: 7vh;
+        left: 5vw;
+        fill: #bd6ecf;
+    }
+    .eight svg:nth-child(2) {
+        top: 23vh;
+        left: 35vw;
+        fill: #7dd175;
+    }
+    .eight svg:nth-child(3) {
+        top: 33vh;
+        left: 23vw;
+        fill: #349d8b;
+    }
+    .eight svg:nth-child(4) {
+        top: 43vh;
+        left: 57vw;
+        fill: #347a9d;
+    }
+    .eight svg:nth-child(5) {
+        top: 68vh;
+        left: 7vw;
+        fill: #c66053;
+    }
+    .eight svg:nth-child(6) {
+        top: 42vh;
+        left: 77vw;
+        fill: #bfaa40;
+    }
+    .eight svg:nth-child(7) {
+        top: 68vh;
+        left: 83vw;
+        fill: #e3bae8;
+    }
+    .eight svg:nth-child(8) {
+        top: 86vh;
+        left: 37vw;
+        fill: #8762cb;
+    }
+    .eight svg:nth-child(9) {
+        top: 94vh;
+        left: 87vw;
+        fill: #9a90da;
+    }
+    .wish-hbd {
+        font-size: 3em;
+        margin: 0;
+        text-transform: uppercase;
+        animation: fadeIn 1s ease-in-out 8s;
+    }
+    .wish h5 {
+        font-weight: lighter;
+        font-size: 2rem;
+        margin: 10px 0 0;
+        animation: fadeIn 1s ease-in-out 8s;
+    }
+    .nine p {
+        font-size: 2rem;
+        font-weight: lighter;
+        animation: fadeIn 1s ease-in-out 9s;
+    }
+    #replay {
+        z-index: 3;
+        cursor: pointer;
+        animation: fadeIn 1s ease-in-out 10s;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes floatUp {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-50px); }
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# 显示当前时间
-st.markdown('<div class="time-display"></div>', unsafe_allow_html=True)
-st.markdown(f"<p>记录日期：{datetime.now().strftime('%Y年%m月%d日')}</p>", unsafe_allow_html=True)
-
-# 添加留言板
-st.markdown('<div class="message-box"></div>', unsafe_allow_html=True)
-with st.container():
-    st.markdown('<h3>给黛玉的留言</h3>', unsafe_allow_html=True)
-    user_message = st.text_area("写下你此刻的心情...", height=100)
-    if st.button("发送给黛玉"):
-        st.success(f"已发送：{user_message}")
-        st.balloons()
-
-# 照片展示区域
-st.markdown('<div class="photo-container"></div>', unsafe_allow_html=True)
-st.markdown('<h3>黛玉的加油瞬间</h3>', unsafe_allow_html=True)
-
-# 创建照片画廊
-st.markdown('<div class="photo-gallery"></div>', unsafe_allow_html=True)
-
-# 照片上传功能
-st.markdown('<h4>添加更多加油瞬间</h4>', unsafe_allow_html=True)
-uploaded_files = st.file_uploader("上传照片", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
-
-# 照片展示
-if uploaded_files:
-    for uploaded_file in uploaded_files:
-        image = Image.open(uploaded_file)
-        st.image(image, caption=f"来自 {uploaded_file.name}", use_column_width=True)
-
-# 视频展示区域
-st.markdown('<hr>', unsafe_allow_html=True)
-st.markdown('<h3>加油视频</h3>', unsafe_allow_html=True)
-
-# 视频上传功能
-st.markdown('<h4>添加加油视频</h4>', unsafe_allow_html=True)
-video_file = st.file_uploader("上传视频", type=["mp4", "mov"])
-
-if video_file:
-    st.video(video_file)
-
-# 音乐播放器
-st.markdown('<div class="music-player"></div>', unsafe_allow_html=True)
-st.markdown('<h3>加油的音乐</h3>', unsafe_allow_html=True)
-
-# 音乐播放选项
-st.markdown('<div style="text-align: center;">选择播放模式</div>', unsafe_allow_html=True)
-play_mode = st.radio("", ["自动播放", "手动播放"])
-
-# 默认音乐链接（可以替换为你的音乐链接）
-music_url = "https://example.com/your_favorite_song.mp3"
-
-# 播放器
-if play_mode == "自动播放":
-    st.markdown(f'<audio src="{music_url}" controls autoplay></audio>', unsafe_allow_html=True)
-else:
-    st.markdown(f'<audio src="{music_url}" controls></audio>', unsafe_allow_html=True)
-
-# 添加一个浪漫的过渡效果
-st.markdown('<hr>', unsafe_allow_html=True)
-st.markdown('<h3>今日加油进度</h3>', unsafe_allow_html=True)
-
-# 创建一个浪漫的进度条
-with st.container():
-    st.markdown('<div style="background-color: #e6d7ff; border-radius: 10px; padding: 10px; margin: 20px 0;"></div>', unsafe_allow_html=True)
-    progress = st.progress(0)
-    for percent_complete in range(100):
-        time.sleep(0.1)
-        progress.progress(percent_complete + 1)
-    st.success("今日加油状态：完美!")
-
-# 添加一个浪漫的聊天记录模拟
-st.markdown('<hr>', unsafe_allow_html=True)
-st.markdown('<h3>加油的对话</h3>', unsafe_allow_html=True)
-
-with st.container():
-    st.markdown('<div style="background-color: white; border-radius: 15px; padding: 20px; margin: 20px 0;"></div>', unsafe_allow_html=True)
-    st.markdown('<div style="display: flex; justify-content: space-between; margin-bottom: 20px;"></div>', unsafe_allow_html=True)
-    
-    # 模拟聊天对话
-    chat_messages = [
-        {"sender": "我", "message": "黛玉，你今天真的很棒！", "time": "18:30"},
-        {"sender": "黛玉", "message": "谢谢，我今天也很开心！", "time": "18:32"},
-        {"sender": "我", "message": "你以后还会更棒的！", "time": "18:33"},
-        {"sender": "黛玉", "message": "我会努力的，谢谢你陪伴我！", "time": "18:35"},
-        {"sender": "我", "message": "❤️", "time": "18:36"}
-    ]
-    
-    for msg in chat_messages:
-        if msg["sender"] == "我":
-            st.markdown(f'<div style="text-align: right; margin-bottom: 10px;"><span style="background-color: #e6d7ff; padding: 8px 15px; border-radius: 10px 10px 0 10px; display: inline-block;">{msg["message"]}</span><span style="color: #7b52c4; font-size: 0.8em; margin-left: 5px;">{msg["time"]}</span></div>', unsafe_allow_html=True)
-        else:
-            st.markdown(f'<div style="text-align: left; margin-bottom: 10px;"><span style="background-color: #f0f0f0; padding: 8px 15px; border-radius: 10px 10px 10px 0; display: inline-block;">{msg["message"]}</span><span style="color: #7b52c4; font-size: 0.8em; margin-left: 5px;">{msg["time"]}</span></div>', unsafe_allow_html=True)
-
-# 添加一个浪漫的"加油时间轴"
-st.markdown('<hr>', unsafe_allow_html=True)
-st.markdown('<h3>今日加油时间轴</h3>', unsafe_allow_html=True)
-
-# 创建时间轴数据
-timeline_data = pd.DataFrame({
-    "时间": ["早上9:00", "中午12:30", "下午2:00", "傍晚5:30", "晚上8:00"],
-    "事件
+# 页面内容
+st.markdown(
+    """
+    <div class="container">
+        <div class="one">🎉 Happy Birthday!!! 🎉</div>
+        <div class="two">I really like your name btw!</div>
+        <div class="three">It's your birthday!!! :D</div>
+        <div class="four">
+            <div class="text-box">
+                <p>Happy birthday to you!! Yeee! Many many happy blah...</p>
+                <div class="fake-btn">Send</div>
+            </div>
+        </div>
+        <div class="five">
+            <p class="idea-1">That's what I was going to do.</p>
+            <p class="idea-2">But then I stopped.</p>
+            <p class="idea-3">I realised, I wanted to do something <strong>special</strong>.</p>
+            <p class="idea-4">Because,</p>
+            <p class="idea-5">You are <span>Special</span> :)</p>
+            <p class="idea-6">HAPPY BIRTHDAY!</p>
+        </div>
+        <div class="six">
+            <img src="http://rynhbd.top/img/lydia2.png" alt="Profile Picture" class="lydia-dp">
+            <img src="http://rynhbd.top/img/hat.svg" alt="Hat" class="hat">
+        </div>
+        <div class="seven">
+            <div class="baloons">
+                <img src="http://rynhbd.top/img/ballon1.svg" alt="Balloon">
+                <img src="http://rynhbd.top/img/ballon2.svg" alt="Balloon">
+            </div>
+        </div>
+        <div class="eight">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></svg>
+        </div>
+        <div class="nine">
+            <p>May the joy always be with you! :)</p>
+        </div>
+        <button id="replay">Watch Again</button>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
