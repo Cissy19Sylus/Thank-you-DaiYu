@@ -187,7 +187,7 @@ with st.container():
         if msg["sender"] == "我":
             st.markdown(f'<div style="text-align: right; margin-bottom: 10px;"><span style="background-color: #e6d7ff; padding: 8px 15px; border-radius: 10px 10px 0 10px; display: inline-block;">{msg["message"]}</span><span style="color: #7b52c4; font-size: 0.8em; margin-left: 5px;">{msg["time"]}</span></div>', unsafe_allow_html=True)
         else:
-            st.markdown(f'<div style="text-align: left; margin-bottom: 10px;"><span style="background-color: #f0f0f0; padding: 8px 15px; border-radius: 10px 10px 10px 0; display: inline-block;">{msg["message"]}</span><span style="color: #7b52c4; font-size: 08.em; margin-left: 5px;">{msg["time"]}</span></div>', unsafe_allow_html=True)
+            st.markdown(f'<div style="text-align: left; margin-bottom: 10px;"><span style="background-color: #f0f0f0; padding: 8px 15px; border-radius: 10px 10px 10px 0; display: inline-block;">{msg["message"]}</span><span style="color: #7b52c4; font-size: 0.8em; margin-left: 5px;">{msg["time"]}</span></div>', unsafe_allow_html=True)
 
 # 添加一个浪漫的"加油时间轴"
 st.markdown('<hr>', unsafe_allow_html=True)
@@ -196,4 +196,4 @@ st.markdown('<h3>今日加油时间轴</h3>', unsafe_allow_html=True)
 # 创建时间轴数据
 timeline_data = pd.DataFrame({
     "时间": ["早上9:00", "中午12:30", "下午2:00", "傍晚5:30", "晚上8:00"],
-    "事件": ["开始加油", "
+    "事件
