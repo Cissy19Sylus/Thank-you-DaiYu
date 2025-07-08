@@ -1,7 +1,7 @@
 import streamlit as st
 
 # 设置页面配置
-st.set_page_config(page_title="黛玉加油!!! :)", page_icon="🎂", layout="wide")
+st.set_page_config(page_title="感谢黛玉", page_icon="❤️", layout="wide")
 
 # 自定义 CSS 样式
 st.markdown(
@@ -193,31 +193,31 @@ st.markdown(
 st.markdown(
     """
     <div class="container">
-        <div class="one">🎉 黛玉加油!!! 🎉</div>
-        <div class="two">I really really thank your !</div>
-        <div class="three">那就浅浅看一下这个小网站吧~</div>
+        <div class="one">🎉 感谢黛玉 🎉</div>
+        <div class="two">黛玉，你是我生命中的光！</div>
+        <div class="three">感谢你一直以来的支持和陪伴！</div>
         <div class="four">
             <div class="text-box">
-                <p>Happy birthday to you!! Yeee! Many many happy blah...</p>
-                <div class="fake-btn">Send</div>
+                <p>黛玉，你的善良和温柔让我感到无比温暖。感谢你在我最需要的时候陪伴在我身边。</p>
+                <div class="fake-btn">感谢</div>
             </div>
         </div>
         <div class="five">
-            <p class="idea-1">That's what I was going to do.</p>
-            <p class="idea-2">But then I stopped.</p>
-            <p class="idea-3">I realised, I wanted to do something <strong>special</strong>.</p>
-            <p class="idea-4">Because,</p>
-            <p class="idea-5">You are <span>Special</span> :)</p>
-            <p class="idea-6">HAPPY BIRTHDAY!</p>
+            <p class="idea-1">你的每一个微笑都让我感到幸福。</p>
+            <p class="idea-2">你的每一个鼓励都让我充满力量。</p>
+            <p class="idea-3">你是我生命中最重要的人，我会永远珍惜你。</p>
+            <p class="idea-4">因为有你，我的生活充满了阳光。</p>
+            <p class="idea-5">你是我心中的宝藏，我永远爱你！</p>
+            <p class="idea-6">THANK YOU!</p>
         </div>
         <div class="six">
-            <img src="http://rynhbd.top/img/lydia2.png" alt="Profile Picture" class="lydia-dp">
-            <img src="http://rynhbd.top/img/hat.svg" alt="Hat" class="hat">
+            <img src="https://example.com/daiyu.jpg" alt="黛玉" class="lydia-dp">
+            <img src="https://example.com/hat.svg" alt="帽子" class="hat">
         </div>
         <div class="seven">
             <div class="baloons">
-                <img src="http://rynhbd.top/img/ballon1.svg" alt="Balloon">
-                <img src="http://rynhbd.top/img/ballon2.svg" alt="Balloon">
+                <img src="https://example.com/balloon1.svg" alt="气球">
+                <img src="https://example.com/balloon2.svg" alt="气球">
             </div>
         </div>
         <div class="eight">
@@ -232,9 +232,9 @@ st.markdown(
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></svg>
         </div>
         <div class="nine">
-            <p>May the joy always be with you! :)</p>
+            <p>愿你的每一天都充满阳光和快乐！</p>
         </div>
-        <button id="replay">Watch Again</button>
+        <button id="replay">再次观看</button>
     </div>
     """,
     unsafe_allow_html=True
