@@ -54,44 +54,53 @@ st.markdown(
 
 # 页面内容
 st.markdown("<div class='container'>", unsafe_allow_html=True)
-st.markdown("<div class='title'>Thank You</div>", unsafe_allow_html=True)
-st.markdown("<div class='subtitle'>MAKE A WISH</div>", unsafe_allow_html=True)
+st.markdown("<div class='title'>感谢你，我的委托老师</div>", unsafe_allow_html=True)
+st.markdown("<div class='subtitle'>许个愿吧</div>", unsafe_allow_html=True)
 
 # 添加照片
-photo = Image.open("path_to_your_photo.jpg")  # 替换为你的照片路径
-st.image(photo, caption="A Special Day", use_column_width=True)
+try:
+    photo = Image.open("path_to_your_photo.jpg")  # 替换为你的照片路径
+    st.image(photo, caption="我们的美好时光", use_column_width=True)
+except FileNotFoundError:
+    st.error("照片文件未找到，请检查文件路径。")
 
 # 添加视频
-with open("path_to_your_video.mp4", "rb") as video_file:
-    video_bytes = video_file.read()
-st.video(video_bytes)
+try:
+    with open("path_to_your_video.mp4", "rb") as video_file:
+        video_bytes = video_file.read()
+    st.video(video_bytes)
+except FileNotFoundError:
+    st.error("视频文件未找到，请检查文件路径。")
 
 # 添加音乐
-with open("path_to_your_music.mp3", "rb") as audio_file:
-    audio_bytes = audio_file.read()
-st.audio(audio_bytes, format="audio/mp3")
+try:
+    with open("path_to_your_music.mp3", "rb") as audio_file:
+        audio_bytes = audio_file.read()
+    st.audio(audio_bytes, format="audio/mp3")
+except FileNotFoundError:
+    st.error("音乐文件未找到，请检查文件路径。")
 
 # 祝福文字
-st.markdown("<div class='message'>May this love and happiness always be with you! ;)</div>", unsafe_allow_html=True)
-st.markdown("<div class='message'>Thank you for being my special someone!</div>", unsafe_allow_html=True)
+st.markdown("<div class='message'>愿这份爱和快乐永远伴随着你！;)</div>", unsafe_allow_html=True)
+st.markdown("<div class='message'>感谢你成为我特别的人！</div>", unsafe_allow_html=True)
 
 # 显示按钮
-st.markdown("<button class='button' onclick='location.reload()'>Watch Again</button>", unsafe_allow_html=True)
+st.markdown("<button class='button' onclick='location.reload()'>再次观看</button>", unsafe_allow_html=True)
 
 # 创意元素：添加一个随机祝福语
 import random
 blessings = [
-    "Wishing you all the joy you bring to others!",
-    "Here's to another year of wonderful memories!",
-    "May your day be as special as you are!"
+    "愿你的每一天都充满阳光和快乐！",
+    "祝你年年有今日，岁岁有今朝！",
+    "愿你的生活比蜜甜，幸福无边！"
 ]
 st.write(random.choice(blessings))
 
 # 创意元素：添加一个互动环节
-st.write("Please leave a message for your special someone:")
-user_message = st.text_input("Your message", "")
-if st.button("Send"):
-    st.write("Message sent with love!")
+st.write("请留下你想对她说的悄悄话：")
+user_message = st.text_input("你的悄悄话", "")
+if st.button("发送"):
+    st.write("你的心意已发送！")
 
 # 结束标记
 st.markdown("</div>", unsafe_allow_html=True)
