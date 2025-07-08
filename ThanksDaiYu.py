@@ -31,8 +31,6 @@ st.markdown(
         font-size: 18px;
         line-height: 1.6;
         margin-bottom: 40px;
-        white-space: nowrap;
-        overflow: hidden;
     }
     .button {
         padding: 10px 20px;
@@ -46,10 +44,11 @@ st.markdown(
 
 # 页面内容
 def type_writer(text, speed=0.05):
+    text_area = st.text_area("", height=200)
     for i in range(len(text)):
-        st.write(f"<span class='message'>{text[:i+1]}</span>", unsafe_allow_html=True)
+        text_area.text = text[:i+1]
         time.sleep(speed)
-    st.write(f"<span class='message'>{text}</span>", unsafe_allow_html=True)
+    text_area.text = text
 
 # 显示标题
 st.markdown("<div class='title'>🎉 感谢黛玉 🎉</div>", unsafe_allow_html=True)
