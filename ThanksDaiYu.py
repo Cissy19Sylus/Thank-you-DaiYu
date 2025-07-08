@@ -10,7 +10,7 @@ import pandas as pd
 
 # 设置页面配置
 st.set_page_config(
-    page_title="与秦彻的美好一天",
+    page_title="黛玉加油！！",
     page_icon="💕",
     layout="wide"
 )
