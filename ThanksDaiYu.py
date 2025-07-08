@@ -57,13 +57,15 @@ st.markdown("<div class='container'>", unsafe_allow_html=True)
 st.markdown("<div class='title'>我真的很感谢你，黛玉</div>", unsafe_allow_html=True)
 
 
-# 添加视频
-try:
-    with open("path_to_your_video.mp4", "rb") as video_file:
-        video_bytes = video_file.read()
-    st.video(video_bytes)
-except FileNotFoundError:
-    st.error("视频文件未找到，请检查文件路径。")
+# 读取视频文件
+with open('7月9日(1).mp4', 'rb') as video_file:
+    video_bytes = video_file.read()
+
+# 使用st.video并设置autoplay和muted
+st.video(video_bytes, autoplay=True, muted=False)
+
+st.markdown('清晰度致歉，Github只能上传25MB的文件')
+
 
 # 祝福文字
 st.markdown("<div class='message'>愿这份爱和快乐永远伴随着你！;)</div>", unsafe_allow_html=True)
