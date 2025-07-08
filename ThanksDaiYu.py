@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 
 # 设置页面配置
 st.set_page_config(page_title="感谢黛玉", page_icon="❤️", layout="wide")
@@ -42,19 +43,21 @@ st.markdown(
 )
 
 # 页面内容
-st.markdown(
-    """
-    <div class="container">
-        <div class="title">🎉 感谢黛玉 🎉</div>
-        <div class="subtitle">黛玉，你是我生命中的光！</div>
-        <div class="message">
-            感谢你一直以来的支持和陪伴！<br>
-            黛玉，你的善良和温柔让我感到无比温暖。感谢你在我最需要的时候陪伴在我身边。<br>
-            你是我生命中最重要的人，我会永远珍惜你。<br>
-            愿你的每一天都充满阳光和快乐！
-        </div>
-        <button class="button" onclick="location.reload()">再次观看</button>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+def type_writer(text, speed=0.1):
+    for char in text:
+        st.write(char, unsafe_allow_html=True)
+        time.sleep(speed)
+    st.write(" ")
+
+# 显示标题
+st.markdown("<div class='title'>🎉 感谢黛玉 🎉</div>", unsafe_allow_html=True)
+
+# 显示副标题
+st.markdown("<div class='subtitle'>黛玉，你是我生命中的光！</div>", unsafe_allow_html=True)
+
+# 显示消息
+message = "感谢你一直以来的支持和陪伴！黛玉，你的善良和温柔让我感到无比温暖。感谢你在我最需要的时候陪伴在我身边。你是我生命中最重要的人，我会永远珍惜你。愿你的每一天都充满阳光和快乐！"
+type_writer(message)
+
+# 显示按钮
+st.markdown("<button class='button' onclick='location.reload()'>再次观看</button>", unsafe_allow_html=True)
