@@ -57,6 +57,11 @@ st.markdown("<div class='container'>", unsafe_allow_html=True)
 st.markdown("<div class='title'>我真的很感谢你，黛玉</div>", unsafe_allow_html=True)
 
 
+# 祝福文字
+st.markdown("<div class='message'>好事来，好运来，全都缠上黛玉来！</div>", unsafe_allow_html=True)
+st.markdown("<div class='message'>感谢小黛成为我特别的人！</div>", unsafe_allow_html=True)
+
+
 # 读取视频文件
 with open('7月9日(1).mp4', 'rb') as video_file:
     video_bytes = video_file.read()
@@ -65,12 +70,6 @@ with open('7月9日(1).mp4', 'rb') as video_file:
 st.video(video_bytes, autoplay=True, muted=False)
 
 st.markdown('清晰度致歉，Github只能上传25MB的文件')
-
-
-
-# 祝福文字
-st.markdown("<div class='message'>好事来，好运来，全都缠上黛玉来！</div>", unsafe_allow_html=True)
-st.markdown("<div class='message'>感谢小黛成为我特别的人！</div>", unsafe_allow_html=True)
 
 
 
