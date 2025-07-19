@@ -68,25 +68,36 @@ st.markdown('清晰度致歉，Github只能上传25MB的文件')
 
 
 # 祝福文字
-st.markdown("<div class='message'>愿这份爱和快乐永远伴随着你！;)</div>", unsafe_allow_html=True)
-st.markdown("<div class='message'>感谢你成为我特别的人！</div>", unsafe_allow_html=True)
+st.markdown("<div class='message'>好事来，好运来，全都缠上黛玉来！;)</div>", unsafe_allow_html=True)
+st.markdown("<div class='message'>感谢小黛成为我特别的人！</div>", unsafe_allow_html=True)
 
 
 
-# 创意元素：添加一个随机祝福语
-import random
-blessings = [
-    "愿你的每一天都充满阳光和快乐！",
-    "祝你年年有今日，岁岁有今朝！",
-    "愿你的生活比蜜甜，幸福无边！"
-]
-st.write(random.choice(blessings))
+# 特别惊喜
+st.markdown('<h3>🎉 特别惊喜 🎉</h3>', unsafe_allow_html=True)
+st.markdown("点击下方按钮，给小黛一个特别的惊喜！")
 
-# 创意元素：添加一个互动环节
-st.write("请留下你想对她说的悄悄话：")
-user_message = st.text_input("你的悄悄话", "")
-if st.button("发送"):
-    st.write("你的心意已发送！")
+if st.button("🎉 求你了小黛点一下吧 🎉"):
+    st.balloons()
 
-# 结束标记
-st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown(
+        """
+        <div class="surprise">
+            <h3>🎈 亲密度+10000！🎈</h3>
+            <p>小黛你超棒的</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+# 页脚
+st.markdown(
+    """
+    <div style="text-align: center; margin-top: 50px;">
+        <p>🎉 希望小黛平安健康！且喜且乐！ 🎉</p>
+        <p> 以上内容全部为小果冻一人制作啦，学术不精，只能做成这样啦，小黛见谅 </p>
+        <p> 不见谅也得见谅╭(╯^╰)╮ </p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
